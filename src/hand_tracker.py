@@ -122,6 +122,7 @@ class HandTracker:
         self._lock: threading.Lock = threading.Lock()
         self._fingertips: list[Fingertip] = []
         self._hand_infos: list[HandInfo] = []
+        self._last_timestamp_ms: int = 0
         self._frame: Optional[np.ndarray] = None
 
     # ------------------------------------------------------------------
@@ -253,7 +254,8 @@ class HandTracker:
                 frame_rgb = cv2.cvtColor(frame_bgr, cv2.COLOR_BGR2RGB)
                 frame_rgb.flags.writeable = False  # performance hint for MediaPipe
                 mp_image = mp.Image(image_format=mp.ImageFormat.SRGB, data=frame_rgb)
-                timestamp_ms = int(time.monotonic() * 1000)
+                timestamp_ms = max(int(time.monotonic() * 1000), self._last_timestamp_ms + 1)
+                self._last_timestamp_ms = timestamp_ms
                 results = self._hands.detect_for_video(mp_image, timestamp_ms)
 
                 # Build fingertip & hand-info lists ---------------------------------
