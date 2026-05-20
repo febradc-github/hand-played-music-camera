@@ -22,7 +22,7 @@ from src.midi_output import MidiOutput, get_available_ports
 from src.renderer import Renderer
 
 
-_CURSOR_SENSITIVITY: float = 2.0
+_CURSOR_SENSITIVITY: float = 0.0
 
 # ---------------------------------------------------------------------------
 # Helper
