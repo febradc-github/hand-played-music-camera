@@ -1,0 +1,27 @@
+{
+    "camera": {
+        "width": 960,
+        "height": 720,
+        "fps": 30,
+        "device_id": 0
+    },
+    "midi_port": "",
+    "left_menu": {
+        "center_x": 0.25,
+        "center_y": 0.5,
+        "radius": 150,
+        "items": ["A", "B", "C", "D", "E", "F", "G"]
+    },
+    "right_menu": {
+        "center_x": 0.75,
+        "center_y": 0.5,
+        "radius": 150,
+        "items": ["maj", "m", "aug", "dim", "sus2", "sus4", "add9", "7", "maj7", "m7"]
+    },
+    "chord_octave": 4,
+    "window": {
+        "width": 960,
+        "height": 720,
+        "title": "Hand-Tracked Chord Instrument"
+    }
+}
